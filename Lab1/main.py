@@ -31,7 +31,7 @@ def measure(input_list, func, func_name, attempts=3):
     print(f"\n=== {func_name} ===")
     print(table_text)
 
-    output_folder = Path("old_output")
+    output_folder = Path("output")
     table_file = output_folder / f"{func_name}_results.txt"
     with open(table_file, "w") as f:
         f.write(f"Results for {func_name}\n")
@@ -65,7 +65,7 @@ with open("inputs/small_input.txt", "r") as f:
     data = f.read()
     small_input = [int(x.strip()) for x in data.split(",")]
 
-folder = Path("old_output")
+folder = Path("output")
 folder.mkdir(exist_ok=True)
 
 algorithm_list = [
