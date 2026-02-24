@@ -129,4 +129,4 @@ int main(){
     return 0;
 }
 
-    // g++ main.cpp algorithms/merge_sort.cpp algorithms/quick_sort.cpp algorithms/heap_sort.cpp algorithms/radix_sort_10.cpp algorithms/radix_sort_256.cpp
+    // g++ main.cpp algorithms/heap_sort/heap_sort.cpp algorithms/merge_sort/merge_sort.cpp algorithms/quick_sort/quick_sort.cpp algorithms/radix_sort/radix_sort_10.cpp algorithms/radix_sort/radix_sort_256.cpp utils/utils.cpp -I.
