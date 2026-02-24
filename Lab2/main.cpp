@@ -8,9 +8,11 @@
 #include <algorithm>
 #include <functional>
 
-#include "algorithms/merge_sort.h"
-#include "algorithms/quick_sort.h"
-#include "algorithms/heap_sort.h"
+#include "algorithms/merge_sort/merge_sort.h"
+#include "algorithms/quick_sort/quick_sort.h"
+#include "algorithms/heap_sort/heap_sort.h"
+#include "algorithms/radix_sort/radix_sort_10.h"
+#include "algorithms/radix_sort/radix_sort_256.h"
 
 using namespace std;
 
@@ -67,6 +69,10 @@ void benchmark(ofstream& fout, const string& algo, const string& input_type, vec
             t = measure([&](){ quicksort(0, arr.size()-1, arr.data()); });
         else if(algo == "heapsort")
             t = measure([&](){ heapsort(arr.data(), arr.size()); });
+        else if(algo == "radixsort10")
+            t = measure([&](){ radixsort10(arr.data(), arr.size()); });
+            else if(algo == "radixsort256")
+            t = measure([&](){ radixsort256(arr.data(), arr.size()); });
 
         fout << algo << "," << input_type << "," << arr.size() << "," << t << "\n";
     }
@@ -107,7 +113,7 @@ int main(){
     ofstream fout("outputs/benchmark.txt");
     fout << "algorithm,input_type,size,time_ns\n";
 
-    vector<string> algos      = {"mergesort", "heapsort", "quicksort"} ;
+    vector<string> algos      = {"mergesort", "heapsort", "quicksort", "radixsort10", "radixsort256"} ;
     vector<string> input_types = {"random", "sorted", "reverse"};
     vector<vector<vector<int>>> inputs = {random_arrs, sorted_arrs, reverse_arrs};
 
@@ -123,4 +129,4 @@ int main(){
     return 0;
 }
 
-    // g++ main.cpp algorithms/merge_sort.cpp algorithms/quick_sort.cpp algorithms/heap_sort.cpp
+    // g++ main.cpp algorithms/merge_sort.cpp algorithms/quick_sort.cpp algorithms/heap_sort.cpp algorithms/radix_sort_10.cpp algorithms/radix_sort_256.cpp

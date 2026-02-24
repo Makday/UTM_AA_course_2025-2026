@@ -1,3 +1,4 @@
+#include "utils.h"
 #include <algorithm>
 
 int median_of_three(int l, int r, int *a){
