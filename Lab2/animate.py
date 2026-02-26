@@ -1,5 +1,5 @@
 import matplotlib
-matplotlib.use("TkAgg")  # use "Qt5Agg" if you have PyQt5 instead
+matplotlib.use("Qt5Agg")
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 import matplotlib.gridspec as gridspec
