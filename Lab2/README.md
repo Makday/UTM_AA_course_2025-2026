@@ -27,7 +27,7 @@ mingw32-make benchmark
 
 To compile generate_animated.cpp only, run:
 ```
-mingw32-make benchmark
+mingw32-make generate_animated
 ```
 
 To delete all executables, run:
