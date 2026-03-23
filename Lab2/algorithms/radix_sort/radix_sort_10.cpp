@@ -34,15 +34,15 @@ void radixsort10(int *a, int n){
     }
     
     int *temp = new int[n];
+    int *src = a;
+    int *dst = temp;
     for(int exp = 1; max_abs/exp > 0; exp*=10){
-        countsort10(a, n, temp, exp);
-        std::swap(a, temp);
+        countsort10(src, n, dst, exp);
+        std::swap(src, dst);
     }
     
-    if (a != temp) {
-        for (int i = 0; i < n; i++) {
-            a[i] = temp[i];
-        }
+    if (src != a) {
+        std::copy(src, src + n, a);
     }
     
     delete[] temp;
