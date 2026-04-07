@@ -3,3 +3,12 @@
 Lab2/inputs
 Lab2/outputs
 Lab2/.vscode
+
+### LaTeX ###
+*.bbl
+*.blg
+*.toc
+*.out
+*.aux
+*.log
+*.synctex.gz
