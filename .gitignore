@@ -1,5 +1,14 @@
 .venv
 .idea
-Lab2/inputs
-Lab2/outputs
-Lab2/.vscode
+*/inputs
+*/outputs
+*/.vscode
+
+### LaTeX ###
+*.bbl
+*.blg
+*.toc
+*.out
+*.aux
+*.log
+*.synctex.gz
