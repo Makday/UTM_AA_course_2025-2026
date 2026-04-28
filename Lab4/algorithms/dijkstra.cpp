@@ -41,7 +41,6 @@ std::vector<int> dijkstra_array(const std::vector<std::vector<std::pair<int, int
 std::vector<int> dijkstra_heap(const std::vector<std::vector<std::pair<int, int>>>& adj, int source) {
     int n = adj.size();
     std::vector<int> dist(n, INF);
-    
     std::priority_queue<std::pair<int, int>, std::vector<std::pair<int, int>>, std::greater<std::pair<int, int>>> pq;
     
     dist[source] = 0;
