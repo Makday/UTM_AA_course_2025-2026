@@ -22,7 +22,7 @@ vector<vector<pair<int, int>>> generate_graph(int n, double density) {
     return adj;
 }
 int main() {
-    vector<int> sizes = {100, 175, 310, 545, 955, 1680, 2950, 5180, 9100, 16000};
+    vector<int> sizes = {100, 175, 310, 545, 955, 1680};
     int num_graphs = sizes.size();
     ofstream sparse_file("inputs/sparse_graphs.txt");
     ofstream dense_file("inputs/dense_graphs.txt");
