@@ -1,0 +1,192 @@
+% ── Encoding & Language ──────────────────────────────────────
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[romanian,english]{babel}   % change language order as needed
+
+% ── Fonts (Times New Roman + Courier New equivalents) ────────
+\usepackage{mathptmx}          % Times New Roman for text & math
+\usepackage{courier}           % Courier New for monospace / code
+
+% ── Page Geometry ────────────────────────────────────────────
+% right=10mm, top=20mm, left=20mm, bottom=20mm, NO borders/headers
+\usepackage[
+  top    = 20mm,
+  bottom = 20mm,
+  left   = 20mm,
+  right  = 10mm,
+  headheight = 0pt,
+  headsep    = 0pt,
+  footskip   = 10mm
+]{geometry}
+
+% ── Line Spacing ─────────────────────────────────────────────
+\usepackage{setspace}
+\setstretch{1.5}               % 1.5 line spacing for main text
+
+% ── Paragraph formatting ─────────────────────────────────────
+\usepackage{indentfirst}
+\setlength{\parindent}{1.25cm} % first-line indent 1.25 cm
+\setlength{\parskip}{0pt}
+
+% ── Page Numbering ───────────────────────────────────────────
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}                     % clear all header/footer fields
+\fancyfoot[C]{\thepage}        % page number bottom center, no period
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Plain style used by chapter opening pages
+\fancypagestyle{plain}{%
+  \fancyhf{}
+  \fancyfoot[C]{\thepage}
+  \renewcommand{\headrulewidth}{0pt}
+}
+
+% ── Chapter & Section Title Formatting ───────────────────────
+\usepackage{titlesec}
+\usepackage{titletoc}
+
+% Chapter: new page, UPPERCASE, TNR Bold, 13pt, centered
+\titleformat{\chapter}[block]
+  {\normalfont\fontsize{13pt}{15pt}\bfseries\centering\MakeUppercase}
+  {\thechapter}
+  {1em}
+  {}
+\titlespacing*{\chapter}{0pt}{0pt}{1\baselineskip}
+% \chapter always starts a new page (default behavior kept)
+
+% Section (subchapter): TNR Bold, 12pt, left-aligned
+\titleformat{\section}[block]
+  {\normalfont\fontsize{12pt}{14pt}\bfseries\raggedright}
+  {\thesection}
+  {1em}
+  {}
+\titlespacing*{\section}{0pt}{1\baselineskip}{0pt}
+
+% Subsection: TNR Bold, 12pt, left-aligned
+\titleformat{\subsection}[block]
+  {\normalfont\fontsize{12pt}{14pt}\bfseries\raggedright}
+  {\thesubsection}
+  {1em}
+  {}
+\titlespacing*{\subsection}{0pt}{1\baselineskip}{0pt}
+
+% Numbering style: Arabic numerals, no "Chapter" prefix
+\renewcommand{\thechapter}{\arabic{chapter}}
+\renewcommand{\thesection}{\arabic{chapter}.\arabic{section}}
+\renewcommand{\thesubsection}{\arabic{chapter}.\arabic{section}.\arabic{subsection}}
+
+% ── Table of Contents Formatting ─────────────────────────────
+\usepackage{tocloft}
+\renewcommand{\cftchapfont}{\bfseries}
+\renewcommand{\cftchappagefont}{\bfseries}
+\setlength{\cftbeforechapskip}{4pt}
+
+% ── Figures ──────────────────────────────────────────────────
+\usepackage{graphicx}
+\usepackage{caption}
+% Figure caption: "Figure X.Y. Title", centered, bold, no period at end
+\DeclareCaptionFormat{figformat}{\textbf{#1#2#3}}
+\captionsetup[figure]{
+  format       = figformat,
+  labelsep     = period,
+  justification= centering,
+  font         = {normalsize, bf},
+  skip         = 4pt
+}
+% Numbering: chapter.figure
+\renewcommand{\thefigure}{\arabic{chapter}.\arabic{figure}}
+
+% ── Tables ───────────────────────────────────────────────────
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}         % for multi-page tables
+% Table caption: right-aligned, above table, "Table X.Y – Title"
+\DeclareCaptionFormat{tabformat}{#1#2#3}
+\captionsetup[table]{
+  format       = tabformat,
+  labelsep     = space,
+  justification= raggedleft,
+  singlelinecheck = false,
+  font         = {normalsize},
+  skip         = 2pt,
+  position     = above
+}
+\renewcommand{\thetable}{\arabic{chapter}.\arabic{table}}
+% Font size 11pt, single spacing inside tables
+\AtBeginEnvironment{tabular}{\fontsize{11pt}{13pt}\selectfont\setstretch{1.0}}
+\AtBeginEnvironment{longtable}{\fontsize{11pt}{13pt}\selectfont\setstretch{1.0}}
+
+% ── Formulas / Equations ─────────────────────────────────────
+\usepackage{amsmath}
+\usepackage{amsfonts}
+% Equation numbering: (chapter.equation), right-aligned automatically
+\renewcommand{\theequation}{\arabic{chapter}.\arabic{equation}}
+\numberwithin{equation}{chapter}
+
+% ── Source Code Listings ─────────────────────────────────────
+\usepackage{listings}
+\usepackage{xcolor}
+\lstset{
+  basicstyle    = \fontsize{10pt}{12pt}\ttfamily\setstretch{1.0},
+  breaklines    = true,
+  breakatwhitespace = false,
+  showstringspaces  = false,
+  tabsize       = 4,
+  frame         = single,
+  numbers       = left,
+  numberstyle   = \tiny\ttfamily,
+  numbersep     = 8pt,
+  commentstyle  = \color{gray},
+  keywordstyle  = \bfseries,
+  stringstyle   = \color{black},
+  xleftmargin   = 1.25cm,
+  framexleftmargin = 1cm,
+  aboveskip     = 0.5\baselineskip,
+  belowskip     = 0.5\baselineskip
+}
+
+% ── Hyperlinks & PDF metadata ────────────────────────────────
+\usepackage[
+  colorlinks = true,
+  linkcolor  = black,
+  urlcolor   = black,
+  citecolor  = black,
+  hidelinks
+]{hyperref}
+
+% ── Enumeration formatting (dashes, letters) ─────────────────
+\usepackage{enumitem}
+% Dash enumeration: - item; ... last item.
+\newlist{dashenum}{itemize}{1}
+\setlist[dashenum]{
+  label     = {--},
+  leftmargin = \parindent,
+  itemsep   = 0pt,
+  parsep    = 0pt,
+  topsep    = 0pt
+}
+% Letter enumeration: a) b) c)
+\newlist{letterenum}{enumerate}{1}
+\setlist[letterenum]{
+  label     = {\alph*)},
+  leftmargin = \parindent,
+  itemsep   = 0pt,
+  parsep    = 0pt,
+  topsep    = 0pt
+}
+% Numeric sub-enumeration: 1) 2) 3)
+\newlist{numeEnum}{enumerate}{1}
+\setlist[numeEnum]{
+  label     = {\arabic*)},
+  leftmargin = 2\parindent,
+  itemsep   = 0pt,
+  parsep    = 0pt,
+  topsep    = 0pt
+}
+
+% ── Miscellaneous ─────────────────────────────────────────────
+\usepackage{microtype}         % better text justification
+\usepackage{url}
+\usepackage{lipsum}            % dummy text — REMOVE in final report
